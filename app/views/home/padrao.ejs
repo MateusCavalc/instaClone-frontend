@@ -21,7 +21,7 @@
 			function carrega_postagens() {
 				// criar xmlhttprequest
 				var xhr = new XMLHttpRequest();
-				xhr.open("GET", "http://localhost:8080/api");
+				xhr.open("GET", "http://localhost:4001/api");
 
 				xhr.onload = function () {
 					if (xhr.status === 200) {
@@ -34,7 +34,7 @@
 								'<span class="titulo">' +
 								data[i].titulo +
 								'</span>' +
-								'<img src="http://localhost:8080/imagens/' + data[i].url_imagem + '" />' +
+								'<img src="http://localhost:4001/imagens/' + data[i].url_imagem + '" />' +
 								'<div class="comentarios" id="comentarios_' + data[i]._id + '"></div>' +
 								'<div class="comentar">' +
 								'<input type="text" class="form-control input_comentario" id="postagem_' + data[i]._id + '" placeholder="Adicione um comentário...">' +
@@ -62,7 +62,7 @@
 							var id_comentario = this.value;
 
 							var xhr = new XMLHttpRequest();
-							xhr.open('DELETE', 'http://localhost:8080/api/' + id_comentario);
+							xhr.open('DELETE', 'http://localhost:4001/api/' + id_comentario);
 
 							xhr.onload = function () {
 								if (xhr.status === 200) {
@@ -82,7 +82,7 @@
 							var comentario = $('#' + id_input_comentario).val();
 
 							var xhr = new XMLHttpRequest();
-							xhr.open('PUT', 'http://localhost:8080/api/' + id);
+							xhr.open('PUT', 'http://localhost:4001/api/' + id);
 							xhr.setRequestHeader('Content-Type', 'application/json');
 
 							xhr.onload = function () {
@@ -147,7 +147,7 @@
 				}
 
 				//fazer o envio do nosso request
-				xhr.open("POST", "http://localhost:8080/api");
+				xhr.open("POST", "http://localhost:4001/api");
 				xhr.send(formData);
 			});
 
